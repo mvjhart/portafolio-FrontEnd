@@ -1,6 +1,7 @@
 import { Component, Output, EventEmitter} from '@angular/core';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { Experiencia } from 'src/app/Interfaces/IExperiencia';
+import { UiService } from 'src/app/services/ui.service';
 
 @Component({
   selector: 'app-add-expe',
@@ -14,7 +15,8 @@ export class AddExpeComponent {
   @Output() addExperiencia:EventEmitter<Experiencia> = new EventEmitter;
 
   constructor(
-    private fBuild:FormBuilder
+    private fBuild:FormBuilder,
+    private uiS:UiService
   ){
     this.experiencia = this.fBuild.group({
       rol:['',[Validators.required]],
@@ -45,6 +47,10 @@ export class AddExpeComponent {
     //console.log(this.experiencia.value);
     // console.log( typeof this.experiencia.get('yearStart')?.value);
     this.addExperiencia.emit(this.experiencia.value);
+  }
+
+  toggleExpView(){
+    this.uiS.toggleExpView();
   }
 
 

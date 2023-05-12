@@ -1,0 +1,9 @@
+.forma {
+    max-width: 50%;
+    margin: auto;
+}
+
+::placeholder{
+    font-size: 0.8em;
+    opacity: 0.5;
+}

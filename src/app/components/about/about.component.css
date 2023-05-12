@@ -11,9 +11,9 @@ h1 {
 #side-bar{
     flex: 10%;
     /* background-color: #394047; */
-    border-right:black solid 1px;
+    /* border-right:black solid 1px; */
 }
 #about-card{
     flex: 90%;
-    background-color: #394047;
+    /* background-color: #394047; */
 }

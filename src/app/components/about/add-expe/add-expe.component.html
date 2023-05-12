@@ -1,4 +1,9 @@
 <p>add-expe works!</p>
+<app-boton
+    text="Volver"
+    (botonClick)="toggleExpView()"
+>
+</app-boton>
 <form [formGroup]="experiencia"
     (ngSubmit)="onEnviar($event)"
     class="forma"

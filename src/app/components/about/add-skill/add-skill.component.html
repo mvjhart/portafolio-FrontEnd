@@ -1,36 +1,65 @@
 <p>add-skill works!</p>
+<app-boton
+    text="Volver"
+    (botonClick)="toggleSkillView()"
+>
+</app-boton>
 <form [formGroup]="skill"
     (ngSubmit)="onEnviar($event)"
+    class="forma"
 >
     <div class="mb-3">
+        <label class="form-label">Nombre de la habilidad
+            <small *ngIf="Name?.touched && Name?.errors" 
+                class="text-danger"
+            > 
+            (!!) campo obligatorio
+            </small>
+        </label>
         <input 
             class="form-control" 
-            type="text" placeholder="name" 
-            aria-label="default input example"
+            type="text" placeholder="Ej. HTML" 
             formControlName="name"
-            [ngClass]="{'is-invalid': name?.touched && name?.errors, 
-        'is-valid': name?.touched && !name?.errors}"
+            [ngClass]="{'is-invalid': Name?.touched && Name?.errors, 
+        'is-valid': Name?.touched && !Name?.errors}"
             >
     </div>
     <div class="mb-3">
-        <div class="input-group mb-3">
-            <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Tipo</button>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Graphic</a></li>
-              <li><a class="dropdown-item" href="#">Scripting</a></li>
-              <li><a class="dropdown-item" href="#">Others</a></li>
-            </ul>
-            <input type="text" class="form-control" aria-label="Text input with dropdown button">
-          </div>
+        <label class="form-label">Tipo de habilidad
+            <small *ngIf="Tipo?.touched && Tipo?.errors" 
+                class="text-danger"
+            > 
+            (!!) campo obligatorio
+            </small>
+        </label>
+        <input 
+            class="form-control" 
+            type="text" placeholder="Ej. Coding"
+            formControlName="tipo"
+            [ngClass]="{'is-invalid': Tipo?.touched && Tipo?.errors, 
+            'is-valid': Tipo?.touched && !Tipo?.errors}"
+        >
+        <div class="form-text">
+            <span>Solo 3 tipos posibles: Graphic, Coding o Others</span>
+        </div>
     </div>
     <div class="mb-3">
+        <label class="form-label">Nivel de la habilidad
+            <small *ngIf="Nivel?.touched && Nivel?.errors" 
+                class="text-danger"
+            > 
+            (!!) campo obligatorio
+            </small>
+        </label>
         <input class="form-control" 
-            type="text" placeholder="nivel" 
-            aria-label="default input example"
+            type="text" placeholder="Ej. 70" 
             formControlName="nivel"
-            [ngClass]="{'is-invalid': nivel?.touched && nivel?.errors, 
-        'is-valid': nivel?.touched && !nivel?.errors}"
+            [ngClass]="{'is-invalid': Nivel?.touched && Nivel?.errors, 
+        'is-valid': Nivel?.touched && !Nivel?.errors}"
         >
+        <div class="form-text">
+            <span>Ingresar un numero del 0 al 100</span>
+        </div>
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-primary" [disabled]="!skill.valid" >Agregar Skill</button>
   </form>

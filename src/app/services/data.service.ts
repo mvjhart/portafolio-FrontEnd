@@ -75,13 +75,13 @@ export class DataService {
 
 // SKILLS
 
-  // obtenerSkills():Observable<Skill[]>{
-  //   //console.log(this.http.get<any>(this.url+"/skills/lista"));
-  //   return this.http.get<Skill[]>(this.url+"/skills/lista");
-  // }
+  obtenerSkills():Observable<Skill[]>{
+    //console.log(this.http.get<any>(this.url+"/skills/lista"));
+    return this.http.get<Skill[]>(this.url+"/skills/lista");
+  }
 
-  // agregarSkill(skill:Skill):Observable<Skill>{
-  //   return this.http.post<Skill>(this.url + "/skills/agregar", skill, httOptions);
-  // }
+  agregarSkill(skill:Skill):Observable<Skill>{
+    return this.http.post<Skill>(this.url + "/skills/agregar", skill, httOptions);
+  }
 
 }

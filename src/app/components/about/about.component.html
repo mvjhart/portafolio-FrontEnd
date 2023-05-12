@@ -1,5 +1,5 @@
 <!-- <p>about works!</p> -->
-<div id="contenedor">
+<div id="contenedor" *ngIf="!expView && !skillView">
     <div id="side-bar">
         <!-- <div class="btn-group-vertical" role="group" aria-label="Vertical radio toggle button group">
             <input type="radio" class="btn-check" name="vbtn-radio" id="vbtn-radio1" autocomplete="off" checked>
@@ -9,8 +9,8 @@
           </div> -->
           <div class="d-flex align-items-start">
             <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-              <button class="nav-link active" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">Home</button>
-              <button class="nav-link" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">Profile</button>
+              <button class="nav-link active" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">Me</button>
+              <button class="nav-link" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">Skills</button>
             </div>
             </div>
             <!-- <div class="form-check">
@@ -62,8 +62,16 @@
                       </h2>
                       <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                         <div class="accordion-body">
-                          <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-                          <app-experiencias></app-experiencias>  
+                            <app-boton
+                                text="Agregar Experiencia"
+                                (botonClick)="toggleAddExp()"
+                            >
+                            </app-boton>
+                          <app-experiencias
+                            *ngFor="let experiencia of listaExperiencias"
+                            [experiencia]="experiencia"
+                          >
+                          </app-experiencias>  
                         </div>
                       </div>
                     </div>
@@ -83,13 +91,31 @@
             </div>
             <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab" tabindex="0">
                 <h1>Skills!</h1>
-                <app-skills></app-skills>
+                <app-boton
+                  text="Agregar Skill"
+                  (botonClick)="toggleAddSkill()"
+                >
+                </app-boton>
+                <app-skills
+                  *ngFor="let skill of listaSkills"
+                  [skill]="skill"
+                >
+                </app-skills>
             </div>
           </div>
         </div>
     </div>
 
-    <app-add-expe
-      (addExperiencia)="agregarExperiencia($event)"
-    >
-    </app-add-expe>
+<app-add-expe
+  (addExperiencia)="agregarExperiencia($event)"
+  *ngIf="expView"
+>
+</app-add-expe>
+
+<app-add-skill
+  (addSkill)="agregarSkill($event)"
+  *ngIf="skillView"
+>
+</app-add-skill>
+
+    
