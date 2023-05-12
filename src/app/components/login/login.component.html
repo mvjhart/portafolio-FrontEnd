@@ -1,1 +1,64 @@
-<p>login works!</p>
+<form class="forma"
+    [formGroup]="form"
+    (ngSubmit)="onEnviar($event)"
+>
+
+    <div class="mb-3">
+      <label 
+        for="exampleInputUser" 
+        class="form-label"
+      >
+      {{username}}
+      </label>
+      <input 
+        type="text" 
+        class="form-control" 
+        id="exampleInputUser" 
+        formControlName="nombreUsuario"
+        [ngClass]="{'is-invalid': nombreUsuario?.touched && nombreUsuario?.errors, 
+        'is-valid': nombreUsuario?.touched && !nombreUsuario?.errors}" 
+      >
+      <div 
+        class="form-text text-danger"
+        *ngIf="nombreUsuario?.errors && nombreUsuario?.touched"
+      >
+      {{userHelpTxt}}
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label 
+        for="exampleInputPassword1" 
+        class="form-label"
+      >
+      {{password}}
+      </label>
+      <input 
+       type="password" 
+       class="form-control" 
+       id="exampleInputPassword1"
+       formControlName="password"
+       [ngClass]="{'is-invalid': Password?.touched && Password?.errors, 
+       'is-valid': Password?.touched && !Password?.errors}"
+      >
+      <div 
+       class="form-text"
+       [ngClass]="{'text-danger': Password?.touched && Password?.errors}"
+      >
+        <span *ngIf="Password?.errors && Password?.touched 
+            || Password?.errors && !Password?.touched"
+        >
+        {{passHelpTxt}}
+        </span>
+      </div>
+    </div>
+
+    <button 
+     type="submit" 
+     class="btn btn-primary"
+     [ngClass]="(!Password?.errors && !nombreUsuario?.errors)? '': 'disabled'"
+    >
+    Ingresa
+    </button>
+
+  </form>
