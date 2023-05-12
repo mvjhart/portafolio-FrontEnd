@@ -1,0 +1,53 @@
+<p>add-proyecto works!</p>
+<form [formGroup]="proyecto"
+    (ngSubmit)="onEnviar($event)"
+    class="forma"
+>
+    <div class="mb-3">
+        <label class="form-label">Titulo
+            <small *ngIf="Titulo?.touched && Titulo?.errors" 
+                class="text-danger"
+            > 
+            (!!) campo obligatorio
+            </small>
+        </label>
+        <input 
+            class="form-control" 
+            type="text" placeholder="ej. Backend Developer" 
+            aria-label="default input example"
+            formControlName="titulo"
+            [ngClass]="{'is-invalid': Titulo?.touched && Titulo?.errors, 
+        'is-valid': Titulo?.touched && !Titulo?.errors}"
+        >
+        <div class="form-text">
+            <span>El puesto/ocupacion relacionado a la dicha experiencia.</span>
+        </div>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Descripcion</label>
+        <input class="form-control" 
+            type="text" placeholder="ej. 2021" 
+            aria-label="default input example"
+            formControlName="descripcion"
+            [ngClass]="{'is-invalid': Descripcion?.touched && Descripcion?.errors, 
+        'is-valid': Descripcion?.touched && !Descripcion?.errors}"
+        >
+        <div class="form-text">
+            <span>Si el año de inicio y de cierre son el mismo, entonces dejar en blanco.</span>
+        </div>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Link</label>
+        <input class="form-control" 
+            type="text" placeholder="ej. Mercado Libre" 
+            aria-label="default input example"
+            formControlName="link"
+            [ngClass]="{'is-invalid': Link?.touched && Link?.errors, 
+        'is-valid': Link?.touched && !Link?.errors}"
+        >
+        <div class="form-text">
+            <span>El nombre de la compania asociada a la experiencia ( al dejar en blanco, se indicara freelance por defecto)</span>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="!proyecto.valid">Agregar Experiencia</button>
+  </form>

@@ -43,7 +43,7 @@ onEnviar(event:Event){
   console.log(this.form.value);
   this.authServ.iniciarSession(this.form.value).subscribe(data =>{
     console.log("DATA: " + JSON.stringify(data));
-    this.ruta.navigate(['/']);
+    this.ruta.navigate(['/about']);
 
   })
 }

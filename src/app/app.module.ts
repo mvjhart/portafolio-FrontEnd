@@ -23,6 +23,11 @@ import { AboutComponent } from './components/about/about.component';
 import { InicioComponent } from './components/inicio/inicio.component';
 import { ErrorComponent } from './components/error/error.component';
 import { LoginComponent } from './components/login/login.component';
+import { SkillsComponent } from './components/about/skills/skills.component';
+import { ExperienciasComponent } from './components/about/experiencias/experiencias.component';
+import { AddSkillComponent } from './components/about/add-skill/add-skill.component';
+import { AddExpeComponent } from './components/about/add-expe/add-expe.component';
+import { AddProyectoComponent } from './components/proyectos/add-proyecto/add-proyecto.component';
 
 
 @NgModule({
@@ -34,7 +39,12 @@ import { LoginComponent } from './components/login/login.component';
     AboutComponent,
     InicioComponent,
     ErrorComponent,
-    LoginComponent
+    LoginComponent,
+    SkillsComponent,
+    ExperienciasComponent,
+    AddSkillComponent,
+    AddExpeComponent,
+    AddProyectoComponent
   ],
   imports: [
     BrowserModule,

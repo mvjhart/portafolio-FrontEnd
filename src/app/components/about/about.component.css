@@ -1,0 +1,19 @@
+h1 {
+    font-size: 3vw;
+}
+
+#contenedor {
+    display: flex;
+    max-width: 50%;
+    margin: auto;
+    padding-top: 4em;
+}
+#side-bar{
+    flex: 10%;
+    /* background-color: #394047; */
+    border-right:black solid 1px;
+}
+#about-card{
+    flex: 90%;
+    background-color: #394047;
+}

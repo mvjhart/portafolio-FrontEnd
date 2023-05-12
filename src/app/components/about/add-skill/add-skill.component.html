@@ -1,0 +1,36 @@
+<p>add-skill works!</p>
+<form [formGroup]="skill"
+    (ngSubmit)="onEnviar($event)"
+>
+    <div class="mb-3">
+        <input 
+            class="form-control" 
+            type="text" placeholder="name" 
+            aria-label="default input example"
+            formControlName="name"
+            [ngClass]="{'is-invalid': name?.touched && name?.errors, 
+        'is-valid': name?.touched && !name?.errors}"
+            >
+    </div>
+    <div class="mb-3">
+        <div class="input-group mb-3">
+            <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Tipo</button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Graphic</a></li>
+              <li><a class="dropdown-item" href="#">Scripting</a></li>
+              <li><a class="dropdown-item" href="#">Others</a></li>
+            </ul>
+            <input type="text" class="form-control" aria-label="Text input with dropdown button">
+          </div>
+    </div>
+    <div class="mb-3">
+        <input class="form-control" 
+            type="text" placeholder="nivel" 
+            aria-label="default input example"
+            formControlName="nivel"
+            [ngClass]="{'is-invalid': nivel?.touched && nivel?.errors, 
+        'is-valid': nivel?.touched && !nivel?.errors}"
+        >
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
