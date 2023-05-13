@@ -1,11 +1,15 @@
 <div *ngIf="!proView">
-<p>proyectos works!</p>
+<div id="header-proyecto">
+<h1>Mis Proyectos</h1>
+<p>
 <app-boton
     text="Agregar Proyecto"
     (botonClick)="toggleProView()"
 >
 
 </app-boton>
+</p>
+</div>
 <div id="body-proyecto">
 <app-item-proyectos
     *ngFor="let proyecto of listaProyectos"

@@ -7,3 +7,25 @@
     font-size: 0.8em;
     opacity: 0.5;
 }
+
+#header-proyecto{
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 80%;
+    margin: auto;
+    padding: 2.5em 2.5em;
+}
+
+#header-proyecto h1, p{
+    display:inline;
+    flex: 50%;
+    /* background-color: black; */
+}
+
+#header-proyecto h1{
+    text-align: end;
+}
+
+#header-proyecto p{
+    text-align: center;
+}

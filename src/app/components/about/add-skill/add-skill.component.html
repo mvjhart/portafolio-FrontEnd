@@ -1,9 +1,13 @@
-<p>add-skill works!</p>
+<div id="skill-header">
+<h1>Nueva Skill</h1>
+<p>
 <app-boton
     text="Volver"
     (botonClick)="toggleSkillView()"
 >
 </app-boton>
+</p>
+</div>
 <form [formGroup]="skill"
     (ngSubmit)="onEnviar($event)"
     class="forma"

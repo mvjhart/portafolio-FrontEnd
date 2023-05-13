@@ -1,9 +1,35 @@
 .forma {
-    max-width: 50%;
+    max-width: 80%;
     margin: auto;
+    padding: 1.5em 1.5em;
 }
 
 ::placeholder{
     font-size: 0.8em;
     opacity: 0.5;
+}
+
+#skill-header{
+    display: flex;
+    flex-wrap: wrap;
+    padding-top:1em;
+    padding-bottom:1em;
+    padding-right: 2em;
+    background-color: rgb(79, 89, 99, 0.1);
+    border-bottom: 1px solid rgb(128, 140, 153,0.5);
+    /* background-color: aqua; */
+}
+
+#skill-header h1,p{
+    display:inline-block;
+    flex: 50%;
+    /* background-color: black; */
+}
+
+#skill-header h1{
+    text-align: center;
+}
+
+#skill-header p{
+    text-align: end;
 }

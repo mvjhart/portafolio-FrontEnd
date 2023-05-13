@@ -1,6 +1,5 @@
 <div id="skills-card" *ngIf="!skillView">
     <div id="skill-header">      
-        <!-- <h1>Mis Skills</h1> -->
         <div id="contenedor-boton">
             <h1>Mis Skills</h1>
             <p>
@@ -58,8 +57,10 @@
     >
     </app-lista-skills>
 </div>
+
+<div id="skills-card" *ngIf="skillView">
 <app-add-skill
     (addSkill)="agregarSkill($event)"
-    *ngIf="skillView"
 >
 </app-add-skill>
+</div>

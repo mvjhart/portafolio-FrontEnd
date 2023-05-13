@@ -1,9 +1,13 @@
-<p>add-proyecto works!</p>
+<div id="header-proyecto">
+<h1>Nuevo proyecto</h1>
+<p>
 <app-boton
     text="Volver"
     (botonClick)="toggleProView()"
 >
 </app-boton>
+</p>
+</div>
 <form [formGroup]="proyecto"
     (ngSubmit)="onEnviar($event)"
     class="forma"
