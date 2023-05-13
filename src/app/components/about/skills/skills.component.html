@@ -54,6 +54,8 @@
     <app-lista-skills
         *ngFor="let skill of listaSkills"
         [skill]="skill"
+        (updateSkill)="actualizarSkill($event)"
+        (deleteSkill)="borrarSkill(skill)"
     >
     </app-lista-skills>
 </div>

@@ -33,6 +33,17 @@ export class ProyectosComponent {
     this.uiS.reloadCurrentRoute();
   }
 
+  actualizarProyecto(p:Proyecto){
+    //console.log(p);
+    let index = this.listaProyectos.findIndex(item => item.id === p.id)
+    this.dataS.actualizarProyecto(p).subscribe(()=> (this.listaProyectos[index] = p));
+  }
+
+  borrarProyecto(proyecto:Proyecto){
+    this.dataS.borrarProyecto(proyecto)
+      .subscribe(()=>(this.listaProyectos = this.listaProyectos.filter(p=>p.id !== proyecto.id)))
+  }
+
   toggleProView(){
     this.uiS.toggleProView();
   }

@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Proyecto } from '../Interfaces/IProyecto';
 import { Experiencia } from '../Interfaces/IExperiencia';
 import { Skill } from '../Interfaces/ISkill';
+import { About } from '../Interfaces/IAbout';
 
 const httOptions = {
   headers: new HttpHeaders({
@@ -16,6 +17,7 @@ const httOptions = {
 })
 export class DataService {
   url:string="http://localhost:8080";
+  aboutID:number=1;
 
   constructor(
     private http:HttpClient    
@@ -83,5 +85,34 @@ export class DataService {
   agregarSkill(skill:Skill):Observable<Skill>{
     return this.http.post<Skill>(this.url + "/skills/agregar", skill, httOptions);
   }
+
+  borrarSkill(skill:Skill):Observable<Skill>{
+    const reqUrl = `${this.url}/skills/borrar/${skill.id}`
+    //console.log(reqUrl);
+    return this.http.delete<Skill>(reqUrl);
+
+  }
+
+  actualizarSkill(skill:any):Observable<any>{
+    const reqUrl = `${this.url}/skills/update/${skill.id}`;
+    console.log(reqUrl);
+    console.log(skill);
+    return this.http.put<any>(reqUrl, skill, httOptions);
+  }  
+
+  // ABOUT
+
+  obtenerAbout():Observable<About>{
+    const reqUrl = `${this.url}/about/ver/${this.aboutID}`;
+    return this.http.get<About>(reqUrl);
+  }
+
+  actualizarAbout(about:any):Observable<any>{
+    const reqUrl = `${this.url}/about/update/${about.id}`;
+    console.log(reqUrl);
+    console.log(about);
+    return this.http.put<any>(reqUrl, about, httOptions);
+  }  
+
 
 }

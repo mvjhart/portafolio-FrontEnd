@@ -1,5 +1,48 @@
 #item-proyecto{
     margin-left: 1em;
     width: 18rem;
-    min-height: 14em;
+    min-height: 15em;
+}
+
+#headbar{
+    display: flex;
+}
+
+#headbar #titulo{
+    flex: 65%;
+    /* background-color: aquamarine; */
+}
+
+.edit-input{
+    display: block;
+    margin-bottom: 1em;
+}
+
+#barra-edicion{
+    display: flex;
+    flex: 35%;
+    /* background-color: black; */
+}
+
+#barra-edicion div{
+    display: inline-block;
+    flex: 50%;
+}
+
+#edit-button{
+    text-align: end;
+}
+
+#edit-button:hover{
+    color: darkseagreen;
+    cursor: pointer;
+}
+
+#x-button{
+    text-align: end;
+}
+
+#x-button:hover{
+    color:rgb(224, 82, 96);
+    cursor: pointer;
 }

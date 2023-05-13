@@ -1,3 +1,112 @@
-<p>{{experiencia.rol}}</p>
-<p><small>{{experiencia.yearStart}}</small><small>~{{experiencia.yearEnd}}</small></p>
-<p>{{experiencia.company}}</p>
+<div id="experiencia-card"
+    *ngIf="!expEditView"
+>
+<div id="experiencia-header">
+<h5>{{experiencia.rol}}</h5>
+<p id="date-exp"><small>{{experiencia.yearStart}}</small><small *ngIf="!((experiencia.yearEnd).length === 0)">~{{experiencia.yearEnd}}</small></p>
+<div 
+id="barra-edicion"
+*ngIf="modoEdicion && !expEditView"
+>
+    <div id="edit-button">
+        <span id="e-mark">
+            <fa-icon [icon]="eMark"
+                (click)="editToggle(experiencia)"
+            >
+            </fa-icon>
+        </span>
+    </div>
+    <div id="x-button">
+        <span id="x-mark">
+            <fa-icon [icon]="xMark"
+                (click)="xClick(experiencia)"
+            >
+            </fa-icon>
+        </span>
+    </div>
+</div>
+</div>
+<p *ngIf="(experiencia.company).length > 0" id="company-exp">{{experiencia.company}}</p>
+<p *ngIf="experiencia.company === ''" id="company-exp">Freelance</p>
+</div>
+
+<form [formGroup]="form"
+    *ngIf="expEditView"
+    (ngSubmit)="onEnviar($event)"
+>
+<div 
+id="barra-edicion"
+>
+    <div id="edit-button">
+    </div>
+    <div id="x-button">
+        <span id="x-mark">
+            <fa-icon [icon]="xMark"
+                (click)="editToggle(experiencia)"
+            >
+            </fa-icon>
+        </span>
+    </div>
+</div>
+    <div class="mb-3">
+        <label class="form-label">Rol
+            <small *ngIf="Rol?.touched && Rol?.errors" 
+                class="text-danger"
+            > 
+            (!!) campo obligatorio
+            </small>
+        </label>
+        <input 
+            class="form-control" 
+            type="text" placeholder="ej. Backend Developer" 
+            aria-label="default input example"
+            formControlName="rol"
+            [ngClass]="{'is-invalid': Rol?.touched && Rol?.errors, 
+        'is-valid': Rol?.touched && !Rol?.errors}"
+        >
+        <div class="form-text">
+            <span>El puesto/ocupacion relacionado a la dicha experiencia.</span>
+        </div>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Año de inicio 
+            <small *ngIf="YearStart?.touched && YearStart?.errors" class="text-danger"> (!!) campo obligatorio</small></label>
+        <input class="form-control" 
+            type="text" placeholder="ej. 2020" 
+            aria-label="default input example"
+            formControlName="yearStart"
+            [ngClass]="{'is-invalid': YearStart?.touched && YearStart?.errors, 
+        'is-valid': YearStart?.touched && !YearStart?.errors}"
+        >
+        <div class="form-text">
+            <span>El año de inicio de dicha experiencia.</span>
+        </div>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Año de cierre</label>
+        <input class="form-control" 
+            type="text" placeholder="ej. 2021" 
+            aria-label="default input example"
+            formControlName="yearEnd"
+            [ngClass]="{'is-invalid': YearEnd?.touched && YearEnd?.errors, 
+        'is-valid': YearEnd?.touched && !YearEnd?.errors}"
+        >
+        <div class="form-text">
+            <span>Si el año de inicio y de cierre son el mismo, entonces dejar en blanco.</span>
+        </div>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Compania</label>
+        <input class="form-control" 
+            type="text" placeholder="ej. Mercado Libre" 
+            aria-label="default input example"
+            formControlName="company"
+            [ngClass]="{'is-invalid': Company?.touched && Company?.errors, 
+        'is-valid': Company?.touched && !Company?.errors}"
+        >
+        <div class="form-text">
+            <span>El nombre de la compania asociada a la experiencia ( al dejar en blanco, se indicara freelance por defecto)</span>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="!form.valid">Guardar Experiencia</button>
+  </form>

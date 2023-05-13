@@ -1,5 +1,30 @@
-<div id="item-proyecto" class="card border-dark mb-3 shadow">
-    <div class="card-header">{{proyecto.titulo}}</div>
+<div 
+  id="item-proyecto" 
+  class="card border-dark mb-3 shadow"
+  *ngIf="!proEditView"
+>
+    <div class="card-header">
+      <div id="headbar">
+      <p id="titulo">{{proyecto.titulo}}</p>
+        <div 
+            id="barra-edicion"
+            *ngIf="modoEdicion"
+        >
+            <div id="edit-button">
+                <fa-icon [icon]="eMark"
+                    (click)="editToggle(proyecto)"
+                >
+                </fa-icon>
+            </div>
+            <div id="x-button">
+                <fa-icon [icon]="xMark"
+                    (click)="xClick(proyecto)"
+                >
+                </fa-icon>
+            </div>
+        </div>
+      </div>
+    </div>
     <div class="card-body">
       <!-- <h5 class="card-title">Dark card title</h5> -->
       <p class="card-text">{{proyecto.descripcion}}</p>
@@ -7,7 +32,57 @@
         class="btn btn-primary"
         *ngIf="proyecto.link"
       >
-       Go somewhere
+       Link al Proyecto
       </a>
     </div>
   </div>
+  <form 
+    id="item-proyecto" 
+    class="card border-dark mb-3 shadow"
+    [formGroup]="editProject"
+    *ngIf="proEditView"
+    (ngSubmit)="enviarCambios($event)"
+  >
+    <div class="card-header">
+      <div id="headbar">
+      <input type="text"
+        class="form-control"
+        formControlName="titulo"
+        [ngClass]="{'is-invalid': Titulo?.touched && Titulo?.errors, 
+        'is-valid': Titulo?.touched && !Titulo?.errors}"
+      >
+          <div 
+          id="barra-edicion"
+      >
+          <div id="edit-button">
+          </div>
+          <div id="x-button">
+              <fa-icon [icon]="xMark"
+                  (click)="editToggle(proyecto)"
+              >
+              </fa-icon>
+          </div>
+      </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <textarea style="width: 100%; height: 6em;"
+        class="form-control edit-input"
+        formControlName="descripcion"
+        [ngClass]="{'is-invalid': Descripcion?.touched && Descripcion?.errors, 
+        'is-valid': Descripcion?.touched && !Descripcion?.errors}"
+      >
+      </textarea>
+      <input type="text"
+        formControlName="link"
+        class="form-control edit-input"
+      >
+      <input 
+        class="btn btn-success" 
+        style="width:100%;" 
+        type="submit" 
+        value="Guardar"
+        [disabled]="!editProject.valid"
+      >
+    </div>
+  </form>

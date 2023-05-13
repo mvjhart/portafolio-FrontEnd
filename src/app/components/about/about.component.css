@@ -17,3 +17,9 @@ h1 {
     flex: 90%;
     /* background-color: #394047; */
 }
+
+#form-about{
+    width: 80%;
+    margin: auto;
+    padding-bottom: 1em;
+}

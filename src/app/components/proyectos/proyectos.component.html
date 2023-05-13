@@ -14,6 +14,8 @@
 <app-item-proyectos
     *ngFor="let proyecto of listaProyectos"
     [proyecto]="proyecto"
+    (updateProyecto)="actualizarProyecto($event)"
+    (deleteProyecto)="borrarProyecto(proyecto)"
 >
 </app-item-proyectos>
 </div>

@@ -17,3 +17,42 @@
 #item-skill{
     padding:1em;
 }
+
+form{
+    width: 50%;
+    margin: auto;
+}
+
+#header-skill{
+    display: flex;
+}
+#header-skill p{
+    flex: 80%;
+    /* background-color: black; */
+}
+
+#header-skill #barra-edicion{
+    flex: 20%;
+    display: flex;
+    /* background-color: blueviolet; */
+}
+
+#edit-button{
+    flex: 50%;
+    text-align: end;
+}
+
+#e-mark:hover{
+    color: darkseagreen;
+    cursor: pointer;
+}
+
+#x-button{
+    flex: 50%;
+    text-align: end;
+}
+
+#x-mark:hover{
+    color:rgb(224, 82, 96);
+    cursor: pointer;
+}

@@ -37,6 +37,18 @@ export class SkillsComponent {
     this.uiS.reloadCurrentRoute();
   }
 
+  actualizarSkill(s:Skill){
+    //console.log(s);
+    let index = this.listaSkills.findIndex(item => item.id === s.id)
+    this.dataS.actualizarSkill(s).subscribe(()=> (this.listaSkills[index] = s));
+    this.uiS.reloadCurrentRoute();
+  }
+
+  borrarSkill(skill:Skill){
+    this.dataS.borrarSkill(skill)
+      .subscribe(()=>(this.listaSkills = this.listaSkills.filter(s=>s.id !== skill.id)));
+  }
+
 
   toggleAddSkill(){
     this.uiS.toggleSkillView();

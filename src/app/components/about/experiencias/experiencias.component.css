@@ -1,0 +1,61 @@
+#experiencia-card{
+    box-shadow: 0px 1px rgb(169, 239, 208,0.5);
+}
+
+#experiencia-header{
+    display: flex;
+}
+
+#experiencia-card h5{
+    /* background-color: aquamarine; */
+    display: inline-block;
+    flex: 30%;
+    /* padding-right:0.5em; */
+}
+#date-exp{
+    /* background-color: blueviolet; */
+    flex: 50%;
+    display: inline-block;
+    font-size: 0.85em;
+    /* padding-left:0.5em; */
+}
+
+#company-exp{
+    /* background-color: black; */
+    text-align: end;
+    padding-right: 0.5em;
+    padding-top: 1.5em;
+}
+
+#barra-edicion{
+    flex: 20%;
+    display: flex;
+    padding-right: 1em;
+    /* background-color:crimson; */
+}
+
+#edit-button{
+    flex: 50%;
+    text-align: end;
+}
+
+#e-mark:hover{
+    color: darkseagreen;
+    cursor: pointer;
+}
+
+#x-button{
+    flex: 50%;
+    text-align: end;
+}
+
+#x-mark:hover{
+    color:rgb(224, 82, 96);
+    cursor: pointer;
+}
+
+form{
+    width: 50%;
+    padding-bottom: 1.5em;
+    margin: auto;
+}

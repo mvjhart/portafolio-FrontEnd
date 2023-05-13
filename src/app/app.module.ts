@@ -31,6 +31,7 @@ import { AddProyectoComponent } from './components/proyectos/add-proyecto/add-pr
 import { BotonComponent } from './components/boton/boton.component';
 import { ItemProyectosComponent } from './components/proyectos/item-proyectos/item-proyectos.component';
 import { ListaSkillsComponent } from './components/about/skills/lista-skills/lista-skills.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 @NgModule({
@@ -57,7 +58,8 @@ import { ListaSkillsComponent } from './components/about/skills/lista-skills/lis
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FontAwesomeModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi:true},

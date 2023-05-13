@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable, Subject } from 'rxjs';
+import { About } from '../Interfaces/IAbout';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,6 @@ export class UiService {
   private skillView:Boolean = false;
   private proView:Boolean = false;
   private typeActive:string = "Coding";
-
 
   private subject = new Subject<any>();
   private subSkl = new Subject<any>();
