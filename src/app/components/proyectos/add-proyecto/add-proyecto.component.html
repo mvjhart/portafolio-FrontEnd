@@ -1,10 +1,15 @@
 <p>add-proyecto works!</p>
+<app-boton
+    text="Volver"
+    (botonClick)="toggleProView()"
+>
+</app-boton>
 <form [formGroup]="proyecto"
     (ngSubmit)="onEnviar($event)"
     class="forma"
 >
     <div class="mb-3">
-        <label class="form-label">Titulo
+        <label class="form-label">Titulo del proyecto
             <small *ngIf="Titulo?.touched && Titulo?.errors" 
                 class="text-danger"
             > 
@@ -13,40 +18,39 @@
         </label>
         <input 
             class="form-control" 
-            type="text" placeholder="ej. Backend Developer" 
+            type="text" placeholder="ej. Portafolio Web" 
             aria-label="default input example"
             formControlName="titulo"
             [ngClass]="{'is-invalid': Titulo?.touched && Titulo?.errors, 
         'is-valid': Titulo?.touched && !Titulo?.errors}"
         >
-        <div class="form-text">
-            <span>El puesto/ocupacion relacionado a la dicha experiencia.</span>
-        </div>
     </div>
     <div class="mb-3">
-        <label class="form-label">Descripcion</label>
-        <input class="form-control" 
-            type="text" placeholder="ej. 2021" 
-            aria-label="default input example"
+        <label for="exampleFormControlTextarea1" class="form-label">Descripcion del proyecto</label>
+        <textarea 
+            class="form-control" 
+            id="exampleFormControlTextarea1" 
+            rows="3"
             formControlName="descripcion"
             [ngClass]="{'is-invalid': Descripcion?.touched && Descripcion?.errors, 
-        'is-valid': Descripcion?.touched && !Descripcion?.errors}"
+            'is-valid': Descripcion?.touched && !Descripcion?.errors}"
         >
+        </textarea>
         <div class="form-text">
-            <span>Si el año de inicio y de cierre son el mismo, entonces dejar en blanco.</span>
+            <span>Breve descripcion del proyecto en cuestion.</span>
         </div>
-    </div>
+      </div>
     <div class="mb-3">
         <label class="form-label">Link</label>
         <input class="form-control" 
-            type="text" placeholder="ej. Mercado Libre" 
+            type="text" placeholder="ej. http://nombre.xcom" 
             aria-label="default input example"
             formControlName="link"
             [ngClass]="{'is-invalid': Link?.touched && Link?.errors, 
         'is-valid': Link?.touched && !Link?.errors}"
         >
         <div class="form-text">
-            <span>El nombre de la compania asociada a la experiencia ( al dejar en blanco, se indicara freelance por defecto)</span>
+            <span>Proporcionar la URL que mostrará el proyecto (o dejar vacio).</span>
         </div>
     </div>
     <button type="submit" class="btn btn-primary" [disabled]="!proyecto.valid">Agregar Experiencia</button>

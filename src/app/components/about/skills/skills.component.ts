@@ -1,5 +1,8 @@
 import { Component, Input } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { Skill } from 'src/app/Interfaces/ISkill';
+import { DataService } from 'src/app/services/data.service';
+import { UiService } from 'src/app/services/ui.service';
 
 @Component({
   selector: 'app-skills',
@@ -9,7 +12,29 @@ import { Skill } from 'src/app/Interfaces/ISkill';
 export class SkillsComponent {
 
   listaSkills:Skill[]=[];
+  skillView:Boolean = false;
+  subSkillView?:Subscription;
 
-  @Input() skill:Skill=this.listaSkills[0];
+  constructor(
+    private dataS:DataService,
+    private uiS:UiService,
+  ){
+    this.dataS.obtenerSkills().subscribe((skills)=>(this.listaSkills=skills));
+    this.subSkillView = this.uiS.onToggleSkillView().subscribe( (skl) => ( this.skillView = skl));
+    console.log(this.skillView);
+  }
+
+  agregarSkill(skill:Skill){
+    //console.log(skill);
+    this.dataS.agregarSkill(skill)
+      .subscribe((s)=>(this.listaSkills.push(s)));
+    this.uiS.toggleSkillView();
+    this.uiS.reloadCurrentRoute();
+  }
+
+
+  toggleAddSkill(){
+    this.uiS.toggleSkillView();
+  }
 
 }

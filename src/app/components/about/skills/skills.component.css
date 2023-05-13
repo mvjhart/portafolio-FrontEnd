@@ -1,0 +1,43 @@
+
+#skills-card{
+    border: 1px solid rgb(128, 140, 153,0.5);
+    /* padding:1em; */
+    border-radius: 0.5em;
+}
+
+#skill-header{
+    display: flex;
+    flex-wrap: wrap;
+    padding-top:1em;
+    padding-bottom:1em;
+    padding-right: 2em;
+    background-color: rgb(79, 89, 99, 0.1);
+    border-bottom: 1px solid rgb(128, 140, 153,0.5);
+    /* background-color: aqua; */
+}
+
+#skill-header h1{
+    flex:30%;
+    text-align: end;
+    /* background-color: blueviolet; */
+}
+
+#contenedor-boton{
+    flex:30;
+    text-align: start;
+    /* background-color: black; */
+}
+
+#mini-navi{
+    flex: 40%;
+    /* background-color: brown; */
+    text-align: end;
+}
+
+#mini-navi label{
+    padding-right:0.3em;
+}
+
+/* #mini-navi .form-check {
+    text-align: right;
+} */

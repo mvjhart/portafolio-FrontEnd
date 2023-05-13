@@ -29,6 +29,8 @@ import { AddSkillComponent } from './components/about/add-skill/add-skill.compon
 import { AddExpeComponent } from './components/about/add-expe/add-expe.component';
 import { AddProyectoComponent } from './components/proyectos/add-proyecto/add-proyecto.component';
 import { BotonComponent } from './components/boton/boton.component';
+import { ItemProyectosComponent } from './components/proyectos/item-proyectos/item-proyectos.component';
+import { ListaSkillsComponent } from './components/about/skills/lista-skills/lista-skills.component';
 
 
 @NgModule({
@@ -46,7 +48,9 @@ import { BotonComponent } from './components/boton/boton.component';
     AddSkillComponent,
     AddExpeComponent,
     AddProyectoComponent,
-    BotonComponent
+    BotonComponent,
+    ItemProyectosComponent,
+    ListaSkillsComponent
   ],
   imports: [
     BrowserModule,

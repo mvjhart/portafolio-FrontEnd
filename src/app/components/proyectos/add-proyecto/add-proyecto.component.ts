@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { Proyecto } from 'src/app/Interfaces/IProyecto';
+import { UiService } from 'src/app/services/ui.service';
 
 @Component({
   selector: 'app-add-proyecto',
@@ -10,12 +12,15 @@ export class AddProyectoComponent {
 
   proyecto:FormGroup;
 
+  @Output() addProyecto:EventEmitter<Proyecto>= new EventEmitter;
+
   constructor(
-    private fBuild:FormBuilder
+    private fBuild:FormBuilder,
+    private uiS:UiService
   ){
     this.proyecto = this.fBuild.group({
       titulo:['',[Validators.required]],
-      descripcion:[''],
+      descripcion:['', [Validators.maxLength(150)]],
       link:['']
     });
   }
@@ -34,7 +39,12 @@ export class AddProyectoComponent {
 
   onEnviar(event:Event){
     event.preventDefault;
-    console.log(this.proyecto.value);
+    //console.log(this.proyecto.value);
+    this.addProyecto.emit(this.proyecto.value);
+  }
+
+  toggleProView(){
+    this.uiS.toggleProView();
   }
 
 }

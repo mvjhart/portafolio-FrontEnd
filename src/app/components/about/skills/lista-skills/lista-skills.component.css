@@ -1,0 +1,19 @@
+#full-bar{
+    background-color: rgb(128, 0, 68,0.7);
+}
+
+#progress-bar{
+    height: 0.1em;
+    background-color: #ffb3db;
+    animation-name: growing;
+    animation-duration: 4s;
+
+}
+
+@keyframes growing {
+    0% {width: 0%;}
+  }
+
+#item-skill{
+    padding:1em;
+}

@@ -1,0 +1,13 @@
+<div id="item-proyecto" class="card border-dark mb-3 shadow">
+    <div class="card-header">{{proyecto.titulo}}</div>
+    <div class="card-body">
+      <!-- <h5 class="card-title">Dark card title</h5> -->
+      <p class="card-text">{{proyecto.descripcion}}</p>
+      <a href="{{proyecto.link}}" 
+        class="btn btn-primary"
+        *ngIf="proyecto.link"
+      >
+       Go somewhere
+      </a>
+    </div>
+  </div>

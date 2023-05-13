@@ -7,10 +7,14 @@ import { Observable, Subject } from 'rxjs';
 })
 export class UiService {
 
-  private expView:Boolean=false;
-  skillView:Boolean = false;
+  private expView:Boolean = false;
+  private skillView:Boolean = false;
+  private proView:Boolean = false;
+
+
   private subject = new Subject<any>();
   private subSkl = new Subject<any>();
+  private subPro = new Subject<any>();
 
   constructor(
     private router:Router
@@ -24,17 +28,27 @@ export class UiService {
     this.expView=!this.expView;
     this.subject.next(this.expView);
   }
-  toggleSkillView(){
-    this.skillView=!this.skillView;
-    this.subSkl.next(this.skillView);
-  }
 
   onToggleExpView():Observable<any>{
     return this.subject.asObservable();
   }
 
+  toggleSkillView(){
+    this.skillView=!this.skillView;
+    this.subSkl.next(this.skillView);
+  }
+
   onToggleSkillView():Observable<any>{
     return this.subSkl.asObservable();
+  }
+
+  toggleProView(){
+    this.proView=!this.proView;
+    this.subPro.next(this.proView);
+  }
+
+  onToggleProView():Observable<any>{
+    return this.subPro.asObservable();
   }
 
   reloadCurrentRoute(){

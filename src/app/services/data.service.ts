@@ -25,28 +25,28 @@ export class DataService {
 
 // PROYECTOS
 
-  // obtenerProyectos():Observable<Proyecto[]>{
-  //   //console.log(this.http.get<any>(this.url+"/proyectos/lista"));
-  //   return this.http.get<Proyecto[]>(this.url+"/proyectos/lista");
-  // }
+  obtenerProyectos():Observable<Proyecto[]>{
+    //console.log(this.http.get<any>(this.url+"/proyectos/lista"));
+    return this.http.get<Proyecto[]>(this.url+"/proyectos/lista");
+  }
 
-  // agregarProyecto(proyecto:Proyecto):Observable<Proyecto>{
-  //   return this.http.post<Proyecto>(this.url + "/proyectos/agregar", proyecto, httOptions);
-  // }
+  agregarProyecto(proyecto:Proyecto):Observable<Proyecto>{
+    return this.http.post<Proyecto>(this.url + "/proyectos/agregar", proyecto, httOptions);
+  }
 
-  // borrarProyecto(proyecto:Proyecto):Observable<Proyecto>{
-  //   const reqUrl = `${this.url}/proyectos/borrar/${proyecto.id}`
-  //   //console.log(reqUrl);
-  //   return this.http.delete<Proyecto>(reqUrl);
+  borrarProyecto(proyecto:Proyecto):Observable<Proyecto>{
+    const reqUrl = `${this.url}/proyectos/borrar/${proyecto.id}`
+    //console.log(reqUrl);
+    return this.http.delete<Proyecto>(reqUrl);
 
-  // }
+  }
 
-  // actualizarProyecto(proyecto:any):Observable<any>{
-  //   const reqUrl = `${this.url}/proyectos/update/${proyecto.id}`;
-  //   console.log(reqUrl);
-  //   console.log(proyecto);
-  //   return this.http.put<any>(reqUrl, proyecto, httOptions);
-  // }
+  actualizarProyecto(proyecto:any):Observable<any>{
+    const reqUrl = `${this.url}/proyectos/update/${proyecto.id}`;
+    console.log(reqUrl);
+    console.log(proyecto);
+    return this.http.put<any>(reqUrl, proyecto, httOptions);
+  }
 
 // EXPERIENCIAS
 
