@@ -1,8 +1,7 @@
-<div id="item-skill">
+<div id="item-skill" *ngIf="skill.tipo === typeActive">
     <p>{{skill.name}}</p>
     <div id="full-bar">
         <div id="progress-bar" [ngStyle]="{'width.%': skill.nivel}">
         </div>
     </div>
-    <p>{{skill.tipo}}</p>
     </div>

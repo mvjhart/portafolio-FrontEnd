@@ -3,6 +3,7 @@
     border: 1px solid rgb(128, 140, 153,0.5);
     /* padding:1em; */
     border-radius: 0.5em;
+    min-width: 17em;
 }
 
 #skill-header{
@@ -16,16 +17,23 @@
     /* background-color: aqua; */
 }
 
-#skill-header h1{
-    flex:30%;
-    text-align: end;
-    /* background-color: blueviolet; */
+#contenedor-boton{
+    flex:60;
+    text-align:center;
+    /* background-color: black; */
+    justify-content: center;
+    align-items: center;
 }
 
-#contenedor-boton{
-    flex:30;
-    text-align: start;
-    /* background-color: black; */
+#contenedor-boton h1{
+    display:inline-block;
+}
+
+#contenedor-boton p{
+    vertical-align: top;
+    display:inline-block;
+    padding-top: 0.5em;
+    padding-left: 0.8em;
 }
 
 #mini-navi{

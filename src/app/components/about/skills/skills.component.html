@@ -1,31 +1,54 @@
 <div id="skills-card" *ngIf="!skillView">
     <div id="skill-header">      
-        <h1>Skills!</h1>
+        <!-- <h1>Mis Skills</h1> -->
         <div id="contenedor-boton">
+            <h1>Mis Skills</h1>
+            <p>
             <app-boton
                 text="Agregar Skill"
                 (botonClick)="toggleAddSkill()"
             >
             </app-boton>
+            </p>
         </div>
         <div id="mini-navi">
                 <div>
                     <label class="form-check-label" for="flexRadioDefault2">
                         Coding
                     </label>
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                    <input 
+                        class="form-check-input" 
+                        type="radio" name="flexRadioDefault" 
+                        id="flexRadioDefault2"
+                        value={{valueTypeOne}} 
+                        (click)="toggleType($event)" 
+                        checked
+                    >
                 </div>
                 <div>
                     <label class="form-check-label" for="flexRadioDefault1">
                         Graphic
                     </label>
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                    <input 
+                        class="form-check-input" 
+                        type="radio" name="flexRadioDefault" 
+                        id="flexRadioDefault1"
+                        value= {{valueTypeTwo}}
+                        (click)="toggleType($event)"
+                    >
                 </div>
                 <div>
                     <label class="form-check-label" for="flexRadioDefault3">
                         Others
                     </label>
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3">
+                    <input 
+                        class="form-check-input" 
+                        type="radio" 
+                        name="flexRadioDefault" 
+                        id="flexRadioDefault3"
+                        value={{valueTypeThree}}
+                        (click)="toggleType($event)"
+                    >
                 </div>
         </div>
     </div>

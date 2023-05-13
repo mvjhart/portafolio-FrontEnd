@@ -12,7 +12,12 @@ import { UiService } from 'src/app/services/ui.service';
 export class SkillsComponent {
 
   listaSkills:Skill[]=[];
+  
+  valueTypeOne:string="1";
+  valueTypeTwo:string="2";
+  valueTypeThree:string="3";
   skillView:Boolean = false;
+
   subSkillView?:Subscription;
 
   constructor(
@@ -35,6 +40,10 @@ export class SkillsComponent {
 
   toggleAddSkill(){
     this.uiS.toggleSkillView();
+  }
+
+  toggleType(event:Event){
+    this.uiS.toggleType((<HTMLInputElement>event.target).value);
   }
 
 }
