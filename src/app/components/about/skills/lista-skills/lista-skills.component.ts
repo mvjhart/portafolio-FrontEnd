@@ -73,7 +73,7 @@ export class ListaSkillsComponent {
   }
 
   xClick(skill:Skill){
-    let windowText="Realmente quieres borrar el siguiente proyecto: " + skill.name;
+    let windowText="Realmente quieres borrar la siguiente skill: " + skill.name;
     if( confirm(windowText) === true){
       this.deleteSkill.emit(skill);  
     }

@@ -20,7 +20,6 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { HeaderComponent } from './components/header/header.component';
 import { ProyectosComponent } from './components/proyectos/proyectos.component';
 import { AboutComponent } from './components/about/about.component';
-import { InicioComponent } from './components/inicio/inicio.component';
 import { ErrorComponent } from './components/error/error.component';
 import { LoginComponent } from './components/login/login.component';
 import { SkillsComponent } from './components/about/skills/skills.component';
@@ -43,7 +42,6 @@ import { AboutCardComponent } from './components/about/about-card/about-card.com
     HeaderComponent,
     ProyectosComponent,
     AboutComponent,
-    InicioComponent,
     ErrorComponent,
     LoginComponent,
     SkillsComponent,

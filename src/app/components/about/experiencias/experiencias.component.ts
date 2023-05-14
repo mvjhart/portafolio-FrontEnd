@@ -68,13 +68,12 @@ export class ExperienciasComponent {
 
   onEnviar(event:Event){
   event.preventDefault;
-  // console.log(this.form.value);
   this.updateExperiencia.emit(this.form.value);
 
   }
 
   xClick(exp:Experiencia){
-    let windowText="Realmente quieres borrar el siguiente proyecto: " + exp.rol;
+    let windowText="Realmente quieres borrar la siguiente experiencia: " + exp.rol;
     if( confirm(windowText) === true){
       this.deleteExperiencia.emit(exp);  
     }

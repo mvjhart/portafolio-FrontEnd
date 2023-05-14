@@ -44,7 +44,7 @@ onEnviar(event:Event){
   event.preventDefault;
   this.authServ.iniciarSession(this.form.value).subscribe(data =>{
     // console.log("DATA: " + JSON.stringify(data));
-    this.ruta.navigate(['/about']);
+    this.ruta.navigate(['/']);
   });
 }
 

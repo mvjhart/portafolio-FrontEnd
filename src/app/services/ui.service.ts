@@ -91,7 +91,7 @@ export class UiService {
 
   reloadCurrentRoute(){
     let currentUrl = this.router.url;
-    this.router.navigateByUrl('/',{skipLocationChange:true}).then(
+    this.router.navigateByUrl('/2',{skipLocationChange:true}).then(
       () => (this.router.navigate([currentUrl])));
   }
 

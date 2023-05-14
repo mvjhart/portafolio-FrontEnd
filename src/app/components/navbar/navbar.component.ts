@@ -9,9 +9,8 @@ import { UiService } from 'src/app/services/ui.service';
 })
 export class NavbarComponent {
 
-  itemUno:string="Inicio";
-  itemDos:string="About";
-  itemTres:string="Proyectos";
+  itemUno:string="About";
+  itemDos:string="Proyectos";
 
   constructor(
     private uiS:UiService
