@@ -3,6 +3,8 @@ import { Proyecto } from 'src/app/Interfaces/IProyecto';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { faRectangleXmark } from '@fortawesome/free-regular-svg-icons';
 import { faEdit } from '@fortawesome/free-solid-svg-icons';
+import { Subscription } from 'rxjs';
+import { UiService } from 'src/app/services/ui.service';
 
 @Component({
   selector: 'app-item-proyectos',
@@ -21,6 +23,7 @@ export class ItemProyectosComponent {
 
   proEditView:boolean=false;
 
+
   @Input() proyecto:Proyecto=this.listaProyectos[0];
   @Output() deleteProyecto:EventEmitter<Proyecto> = new EventEmitter();
   @Output() updateProyecto:EventEmitter<Proyecto> = new EventEmitter();
@@ -35,6 +38,7 @@ export class ItemProyectosComponent {
       link:['']
 
     });
+    
   }
 
   get Titulo(){

@@ -13,14 +13,11 @@ export class UiService {
   private updateAboutView:Boolean=false;
   private typeActive:string = "Coding";
 
-  private editUnlocked:Boolean = false;
-
   private subject = new Subject<any>();
   private subSkl = new Subject<any>();
   private subPro = new Subject<any>();
   private subType = new Subject<any>();
   private subAbout = new Subject<any>();
-  private subEdit = new Subject<any>();
 
   constructor(
     private router:Router
@@ -90,15 +87,6 @@ export class UiService {
 
   onToggleType():Observable<any>{
     return this.subType.asObservable();
-  }
-
-  unlockEdit(){
-    this.editUnlocked= !this.editUnlocked;
-    this.subEdit.next(this.editUnlocked);
-  }
-
-  onUnlockEdit():Observable<any>{
-    return this.subEdit.asObservable();
   }
 
   reloadCurrentRoute(){

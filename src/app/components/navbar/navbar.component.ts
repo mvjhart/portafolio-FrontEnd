@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { UiService } from 'src/app/services/ui.service';
 
 @Component({
@@ -12,21 +13,14 @@ export class NavbarComponent {
   itemDos:string="About";
   itemTres:string="Proyectos";
 
-  editUnlocked:Boolean = false;
-
   constructor(
-    private uiServ:UiService
+    private uiS:UiService
   ){
 
   }
 
   estaActiva(ruta:string):Boolean{
-    return this.uiServ.hasSameRoute(ruta);
-  }
-
-  unlockEdit(){
-    console.log("click!");
-    
+    return this.uiS.hasSameRoute(ruta);
   }
 
 }

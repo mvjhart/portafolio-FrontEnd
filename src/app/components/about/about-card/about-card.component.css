@@ -1,0 +1,7 @@
+#email-contact{
+    display: block;
+}
+
+#email-contact span:hover{
+    color: rgb(181, 158, 224);
+}

@@ -3,6 +3,8 @@ import { Experiencia } from 'src/app/Interfaces/IExperiencia';
 import { faRectangleXmark } from '@fortawesome/free-regular-svg-icons';
 import { faEdit } from '@fortawesome/free-solid-svg-icons';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Subscription } from 'rxjs';
+import { UiService } from 'src/app/services/ui.service';
 
 
 @Component({
