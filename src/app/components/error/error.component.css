@@ -1,0 +1,63 @@
+#contenedor{
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#information h1{
+    padding-top: 1em;
+}
+
+#information h2{
+    padding-top: 1.3em;
+}
+
+#cuadrado{
+    width: 5em;
+    height: 5em;
+    position: absolute;
+    left:50%;
+    top:50%;
+    box-shadow: 0px 0px 10px rgb(242, 242, 242, 0.3);
+    border: 1px solid rgb(242, 242, 242, 0.6);
+    background-color: rgb(57, 62, 70);
+    box-sizing: border-box;
+    transition: box-shadow 1s;
+    animation-name: entrada;
+    animation-delay:3s;
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: both;
+}
+
+@keyframes entrada{
+    0% {left:0px; opacity: 0;}
+    50%{top:40%; opacity: 0.9;}
+    100%{top:50%; left:50%}
+}
+
+#cuadrado:hover{
+    box-shadow: 0px 0px 15px rgb(242, 242, 242, 0.6);
+}
+
+#cuadrado p{
+    text-align: center;
+    position: relative;
+    top:1.5em;
+}
+
+#cuadrado a{
+    color: rgb(205, 225, 254, 0.8);
+}
+
+#cuadrado a:hover{
+    color: rgb(80, 149, 251);
+}
+
+h2,h1 {
+    text-align: center;
+}

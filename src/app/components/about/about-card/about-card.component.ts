@@ -14,7 +14,7 @@ export class AboutCardComponent {
   
   listaExperiencias:Experiencia[]=[];
   about:About={id:0,nombre:'', miniIntro:'', goals:'', email:'', country:'', interest:''};
-  pieces:String[]=["Hola, soy ","Soy de ","Me podes contactar con "];
+  pieces:String[]=["Hola, soy ","Recido en ","Me podes contactar con "];
   goalsTitle:string="Mis metas"
   expTitle:string="Experiencias laborales";
   contacTitle:string="Contacto";

@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
+import { BehaviorSubject, Subscription } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service';
+import { UiService } from 'src/app/services/ui.service';
 
 @Component({
   selector: 'app-login',
@@ -40,12 +42,10 @@ get Password(){
 
 onEnviar(event:Event){
   event.preventDefault;
-  console.log(this.form.value);
   this.authServ.iniciarSession(this.form.value).subscribe(data =>{
-    console.log("DATA: " + JSON.stringify(data));
+    // console.log("DATA: " + JSON.stringify(data));
     this.ruta.navigate(['/about']);
-
-  })
+  });
 }
 
 }
