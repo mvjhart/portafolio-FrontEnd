@@ -108,7 +108,7 @@ export class DataService {
   }
 
   actualizarAbout(about:any):Observable<any>{
-    const reqUrl = `${this.url}/about/update/${about.id}`;
+    const reqUrl = `${this.url}/about/update/${this.aboutID}`;
     console.log(reqUrl);
     console.log(about);
     return this.http.put<any>(reqUrl, about, httOptions);

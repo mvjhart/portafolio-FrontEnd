@@ -32,6 +32,8 @@ import { BotonComponent } from './components/boton/boton.component';
 import { ItemProyectosComponent } from './components/proyectos/item-proyectos/item-proyectos.component';
 import { ListaSkillsComponent } from './components/about/skills/lista-skills/lista-skills.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { EditAboutComponent } from './components/about/edit-about/edit-about.component';
+import { AboutCardComponent } from './components/about/about-card/about-card.component';
 
 
 @NgModule({
@@ -51,7 +53,9 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     AddProyectoComponent,
     BotonComponent,
     ItemProyectosComponent,
-    ListaSkillsComponent
+    ListaSkillsComponent,
+    EditAboutComponent,
+    AboutCardComponent
   ],
   imports: [
     BrowserModule,

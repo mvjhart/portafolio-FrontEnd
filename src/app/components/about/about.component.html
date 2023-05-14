@@ -1,5 +1,8 @@
-<!-- <p>about works!</p> -->
-<div id="contenedor" *ngIf="!expView">
+
+<!-- CONTENER CONTIENE TODO  -->
+<div id="contenedor">
+
+<!-- SIDE BAR PARA NAGEVACION POR EL ABOUT -->
     <div id="side-bar">
           <div class="d-flex align-items-start">
             <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
@@ -10,186 +13,32 @@
             <button type="button"
               class="btn btn-success btn-sm"
               style="font-size: 0.8em;"
-              (click)="editAboutToggle(about)"
+              (click)="editAboutToggle()"
             >
               <small>Editar About</small>
             </button>
     </div>
-    <div id="about-card">
-        <div class="tab-content" id="v-pills-tabContent" *ngIf="!editAboutView">
-            <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab" tabindex="0">
-                <div class="accordion" id="accordionExample">
-                    <div class="accordion-item">
-                      <h2 class="accordion-header">
-                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                          Mini Intro
-                        </button>
-                      </h2>
-                      <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
-                        <div class="accordion-body">
-                          {{about.miniIntro}}
-                        </div>
-                      </div>
-                    </div>
-                    <div class="accordion-item">
-                      <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                          Goals
-                        </button>
-                      </h2>
-                      <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                        <div class="accordion-body">
-                          {{about.goals}}
-                        </div>
-                      </div>
-                    </div>
-                    <div class="accordion-item">
-                      <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                          Experiencias
-                        </button>
-                      </h2>
-                      <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                        <div class="accordion-body">
-                            <app-boton
-                                text="Agregar Experiencia"
-                                (botonClick)="toggleAddExp()"
-                            >
-                            </app-boton>
-                          <app-experiencias
-                            *ngFor="let experiencia of listaExperiencias"
-                            [experiencia]="experiencia"
-                            (deleteExperiencia)="borrarExperiencia(experiencia)"
-                            (updateExperiencia)="actualizarExperiencia($event)"
-                          >
-                          </app-experiencias>  
-                        </div>
-                      </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header">
-                          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseThree">
-                            Contact
-                          </button>
-                        </h2>
-                        <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                          <div class="accordion-body">
-                            {{about.interest}}
-                            {{about.email}}
-                          </div>
-                        </div>
-                      </div>
-                  </div>
-            </div>
-            <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab" tabindex="0">
-              <app-skills></app-skills>
-            </div>
-            </div>
-
-          <form id="form-about"
-          *ngIf="editAboutView"
-          [formGroup]="form"
-          (ngSubmit)="onEnviar($event)"
-          >
-          <h3>Editar About</h3>
-          <div class="mb-3">
-            <label class="form-label">Tu nombre
-              <small *ngIf="Nombre?.touched && Nombre?.errors" 
-                  class="text-danger"
-              > 
-              (!!) campo obligatorio
-              </small>
-              </label>
-              <input type="text"
-                class="form-control"
-                formControlName="nombre"
-                [ngClass]="{'is-invalid': Nombre?.touched && Nombre?.errors, 
-                'is-valid': Nombre?.touched && !Nombre?.errors}"
-              >
-            </div>
-            <div class="mb-3">
-              <label class="form-label">Mini Intro
-              </label>
-              <textarea style="width: 100%; height: 6em;"
-                class="form-control edit-input"
-                formControlName="miniIntro"
-                [ngClass]="{'is-invalid': MiniIntro?.touched && MiniIntro?.errors, 
-                'is-valid': MiniIntro?.touched && !MiniIntro?.errors}"
-              >
-              </textarea>
-              <div class="form-text">
-                <span>Breve intro acerca de vos.</span>
-              </div>
-            </div>
-            <div class="mb-3">
-              <label class="form-label">Tus metas
-              </label>
-              <textarea style="width: 100%; height: 6em;"
-                class="form-control edit-input"
-                formControlName="goals"
-                [ngClass]="{'is-invalid': Goals?.touched && Goals?.errors, 
-                'is-valid': Goals?.touched && !Goals?.errors}"
-              >
-              </textarea>
-              <div class="form-text">
-                <span>Breve descripcion sobre tus objetivos.</span>
-              </div>
-            </div>
-            <div class="mb-3">
-              <label class="form-label">Tu email
-                <small *ngIf="Email?.touched && Email?.errors" 
-                    class="text-danger"
-                > 
-                (!!) campo obligatorio
-                </small>
-              </label>
-              <input type="text"
-                class="form-control"
-                formControlName="email"
-                [ngClass]="{'is-invalid': Email?.touched && Email?.errors, 
-                'is-valid': Email?.touched && !Email?.errors}"
-              >
-              <div class="form-text">
-                <span>Un email para contactarte.</span>
-                </div>
-            </div>
-            <div class="mb-3">
-              <label class="form-label">Tu Pais
-              </label>
-              <input type="text"
-                formControlName="country"
-                class="form-control edit-input"
-              >
-              <div class="form-text">
-                <span>A dónde vivis.</span>
-              </div>
-            </div>
-            <div class="mb-3">
-              <label class="form-label">Tu proximo trabajo
-              </label>
-              <textarea style="width: 100%; height: 6em;"
-                class="form-control edit-input"
-                formControlName="interest"
-                [ngClass]="{'is-invalid': Interest?.touched && Interest?.errors, 
-                'is-valid': Interest?.touched && !Interest?.errors}"
-              ></textarea>
-              <div class="form-text">
-                <span>Breve descripcion sobre lo que te interesaria.</span>
-              </div>
-            </div>
-            <input 
-            class="btn btn-success" 
-            style="width:100%;" 
-            type="submit" 
-            value="Guardar"
-            [disabled]="!form.valid"
-          >
-          </form>
+<!-- FIN DEL SIDE BAR PARA NAGEVACION POR EL ABOUT -->
+<!-- INICIO DEL  ABOUT CARD -->
+  <div id="about-card">
+    <!-- INICIO DEL CONTENEDOR QUE TIENE LAS DOS PILLS QUE ESTAN LINKEADAS AL SIDEBAR -->
+      <div class="tab-content" id="v-pills-tabContent" *ngIf="!editAboutView">
+        <!--  INICIO FIRST PILL -->
+        <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab" tabindex="0">
+          <app-about-card></app-about-card>
+        </div>
+        <!-- FIN FIRST PILL-->
+        <!-- INICIO SECOND PILL -->
+        <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab" tabindex="0">
+          <app-skills></app-skills>
+        </div>
+        <!-- FIN SECOND PILL -->
+      </div>
+      <!-- FIN DEL CONTENEDOR QUE CONTIENE LAS DOS PILLS -->
+      <app-edit-about *ngIf="editAboutView"
+      >
+      </app-edit-about>
   </div>
+<!-- FIN ABOUT CARD -->
 </div>
-
-<app-add-expe
-  (addExperiencia)="agregarExperiencia($event)"
-  *ngIf="expView"
->
-</app-add-expe>
+<!-- FIN CONTENEDOR -->

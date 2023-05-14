@@ -1,5 +1,5 @@
 export interface About {
-    id:number;
+    id?:number;
     nombre:string;
     miniIntro:string;
     goals:string;

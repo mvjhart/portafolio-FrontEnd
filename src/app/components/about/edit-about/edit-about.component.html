@@ -1,0 +1,98 @@
+<form id="form-about"
+(ngSubmit)="onEnviar($event)"
+[formGroup]="form"
+>
+<h3>Editar About</h3>
+<div class="mb-3">
+  <label class="form-label">Tu nombre
+    <small *ngIf="Nombre?.touched && Nombre?.errors" 
+        class="text-danger"
+    > 
+    (!!) campo obligatorio
+    </small>
+    </label>
+    <input type="text"
+      class="form-control"
+      formControlName="nombre"
+      [ngClass]="{'is-invalid': Nombre?.touched && Nombre?.errors, 
+      'is-valid': Nombre?.touched && !Nombre?.errors}"
+    >
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Mini Intro
+    </label>
+    <textarea style="width: 100%; height: 6em;"
+      class="form-control edit-input"
+      formControlName="miniIntro"
+      [ngClass]="{'is-invalid': MiniIntro?.touched && MiniIntro?.errors, 
+      'is-valid': MiniIntro?.touched && !MiniIntro?.errors}"
+    >
+    </textarea>
+    <div class="form-text">
+      <span>Breve intro acerca de vos.</span>
+    </div>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Tus metas
+    </label>
+    <textarea style="width: 100%; height: 6em;"
+      class="form-control edit-input"
+      formControlName="goals"
+      [ngClass]="{'is-invalid': Goals?.touched && Goals?.errors, 
+      'is-valid': Goals?.touched && !Goals?.errors}"
+    >
+    </textarea>
+    <div class="form-text">
+      <span>Breve descripcion sobre tus objetivos.</span>
+    </div>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Tu email
+      <small *ngIf="Email?.touched && Email?.errors" 
+          class="text-danger"
+      > 
+      (!!) campo obligatorio
+      </small>
+    </label>
+    <input type="text"
+      class="form-control"
+      formControlName="email"
+      [ngClass]="{'is-invalid': Email?.touched && Email?.errors, 
+      'is-valid': Email?.touched && !Email?.errors}"
+    >
+    <div class="form-text">
+      <span>Un email para contactarte.</span>
+      </div>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Tu Pais
+    </label>
+    <input type="text"
+      formControlName="country"
+      class="form-control edit-input"
+    >
+    <div class="form-text">
+      <span>A dónde vivis.</span>
+    </div>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Tu proximo trabajo
+    </label>
+    <textarea style="width: 100%; height: 6em;"
+      class="form-control edit-input"
+      formControlName="interest"
+      [ngClass]="{'is-invalid': Interest?.touched && Interest?.errors, 
+      'is-valid': Interest?.touched && !Interest?.errors}"
+    ></textarea>
+    <div class="form-text">
+      <span>Breve descripcion sobre lo que te interesaria.</span>
+    </div>
+  </div>
+  <input 
+  class="btn btn-success" 
+  style="width:100%;" 
+  type="submit" 
+  value="Guardar"
+  [disabled]="!form.valid"
+>
+</form>
