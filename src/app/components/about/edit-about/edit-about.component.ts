@@ -58,7 +58,11 @@ export class EditAboutComponent {
 
   onEnviar(event:Event){
     event.preventDefault;
-    console.log(this.form.value);
+    this.updateAbout.emit(this.form.value);
+  }
+
+  toggleUpdateAbout(){
+    this.uiS.toggleUpdateAbout();
   }
 
 }

@@ -12,6 +12,8 @@ export class NavbarComponent {
   itemDos:string="About";
   itemTres:string="Proyectos";
 
+  editUnlocked:Boolean = false;
+
   constructor(
     private uiServ:UiService
   ){
@@ -20,6 +22,11 @@ export class NavbarComponent {
 
   estaActiva(ruta:string):Boolean{
     return this.uiServ.hasSameRoute(ruta);
+  }
+
+  unlockEdit(){
+    console.log("click!");
+    
   }
 
 }

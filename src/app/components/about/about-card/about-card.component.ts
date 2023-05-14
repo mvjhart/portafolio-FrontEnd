@@ -15,8 +15,10 @@ export class AboutCardComponent {
   listaExperiencias:Experiencia[]=[];
   about:About={id:0,nombre:'', miniIntro:'', goals:'', email:'', country:'', interest:''};
   expView:Boolean = false;
+  updateAboutView:Boolean = false;
 
   subscription?:Subscription;
+  subAbout?:Subscription;
 
   constructor(
     private dataS:DataService,
@@ -25,6 +27,7 @@ export class AboutCardComponent {
     this.dataS.obtenerAbout().subscribe((a)=>(this.about = a));
     this.dataS.obtenerExperiencias().subscribe((experiencias)=>(this.listaExperiencias=experiencias));
     this.subscription = this.uiS.onToggleExpView().subscribe( (v) => (this.expView = v));
+    this.subAbout = this.uiS.onUpdateAbout().subscribe((a)=> this.updateAboutView = a);
   }
 
   agregarExperiencia(experiencia:Experiencia){
@@ -44,6 +47,11 @@ export class AboutCardComponent {
     console.log(exp);
     let index = this.listaExperiencias.findIndex(item => item.id === exp.id)
     this.dataS.actualizarExperiencia(exp).subscribe(()=> (this.listaExperiencias[index] = exp));
+    this.uiS.reloadCurrentRoute();
+  }
+
+  actualizarAbout(a:About){
+    this.dataS.actualizarAbout(a).subscribe(()=> (this.about = a));
     this.uiS.reloadCurrentRoute();
   }
 

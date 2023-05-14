@@ -1,5 +1,5 @@
 <!-- INICIO DEL CONTENEDOR DEL ACORDEON -->
-<div class="accordion" id="accordionExample" *ngIf="!expView">
+<div class="accordion" id="accordionExample" *ngIf="!expView && !updateAboutView">
     <!-- INICIO FIRST ACORDEON ITEM -->
     <div class="accordion-item">
         <h2 class="accordion-header">
@@ -38,6 +38,7 @@
         <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
             <div class="accordion-body">
                 <app-boton
+                    clase="btn btn-success btn-sm mb-3"
                     text="Agregar Experiencia"
                     (botonClick)="toggleAddExp()"
                 >
@@ -69,6 +70,11 @@
     </div>
 <!-- FIN FOURTH ACORDEON ITEM -->
 </div>
+
+<app-edit-about *ngIf="updateAboutView"
+    (updateAbout)="actualizarAbout($event)"
+>
+</app-edit-about>
 
 <app-add-expe
   (addExperiencia)="agregarExperiencia($event)"

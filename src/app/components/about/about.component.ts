@@ -9,21 +9,42 @@ import { UiService } from 'src/app/services/ui.service';
 })
 export class AboutComponent {
   
-  editAboutView:Boolean=false;
+  updateAboutView:Boolean=false;
+  expView:Boolean = false;
+  firstItem:Boolean = true;
+  secondItem:Boolean = false;
 
-  //subscription?:Subscription;
+  titleFirstItem:string="Me";
+  titleSecondItem:string="Skills";
+
+  subscription?:Subscription;
+  subExp?:Subscription;
 
   constructor(
     private uiS:UiService
   ){
-
+    this.subscription = this.uiS.onUpdateAbout().subscribe((a)=> this.updateAboutView = a);
+    this.subExp = this.uiS.onToggleExpView().subscribe((e)=> this.expView = e);
   }
 
   editAboutToggle(){
-    this.editAboutView = !this.editAboutView;
-    
-    if(this.editAboutView){
-      console.log("CLICK EDITAR ABOUT");
+
+    this.uiS.toggleUpdateAbout();
+  }
+
+  onSecondItem(){
+
+    if(this.firstItem){
+      this.firstItem = false;
+      this.secondItem = true;
+    }
+
+  }
+
+  onFirstItem(){
+    if(this.secondItem){
+      this.firstItem = true;
+      this.secondItem = false;
     }
   }
 

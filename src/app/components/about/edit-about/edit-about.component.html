@@ -1,8 +1,18 @@
-<form id="form-about"
+<div id="my-fheader">
+<h3>Editar About</h3>
+<p id="v-button">
+<app-boton
+    clase="btn btn-success"
+    text="Volver"
+    (botonClick)="toggleUpdateAbout()"
+>
+</app-boton>
+</p>
+</div>
+<form id="my-wide-form"
 (ngSubmit)="onEnviar($event)"
 [formGroup]="form"
 >
-<h3>Editar About</h3>
 <div class="mb-3">
   <label class="form-label">Tu nombre
     <small *ngIf="Nombre?.touched && Nombre?.errors" 

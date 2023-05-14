@@ -2,3 +2,27 @@
 body{
     margin: 0;
 }
+
+#my-fheader{
+    display: flex;
+}
+
+#my-fheader h3{
+    flex: 60%;
+}
+
+#v-button{
+    flex: 40%;
+    text-align: center;
+    /* background-color: black; */
+}
+
+#my-fheader h3{
+    text-align: end;
+}
+
+#my-wide-form{
+    width: 80%;
+    margin: auto;
+    padding-bottom: 1.5em;
+}

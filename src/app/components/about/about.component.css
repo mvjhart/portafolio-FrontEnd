@@ -4,13 +4,16 @@ h1 {
 
 #contenedor {
     display: flex;
-    max-width: 50%;
+    max-width: 60%;
     margin: auto;
     padding-top: 4em;
 }
 #side-bar{
     flex: 10%;
-    /* background-color: #394047; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     /* border-right:black solid 1px; */
 }
 #about-card{
@@ -18,8 +21,14 @@ h1 {
     /* background-color: #394047; */
 }
 
-#form-about{
-    width: 80%;
-    margin: auto;
-    padding-bottom: 1em;
+#nav-buttons{
+    flex: 50%;
+    /* background-color: black; */
+}
+
+#last-button{
+    flex: 50%;
+    padding-right: 1.2em;
+    padding-left:0.2em;
+    /* background-color: aqua; */
 }

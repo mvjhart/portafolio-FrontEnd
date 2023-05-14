@@ -7,6 +7,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 })
 export class BotonComponent {
 
+@Input() clase:string="";
 @Input() text:string="";
 @Output() botonClick = new EventEmitter();
 

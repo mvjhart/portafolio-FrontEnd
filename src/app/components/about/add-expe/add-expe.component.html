@@ -1,12 +1,17 @@
-<p>add-expe works!</p>
+<div id="my-fheader">
+<h3>Nueva Experiencia</h3>
+<p id="v-button">
 <app-boton
+    clase="btn btn-success"
     text="Volver"
     (botonClick)="toggleExpView()"
 >
 </app-boton>
+</p>
+</div>
 <form [formGroup]="experiencia"
     (ngSubmit)="onEnviar($event)"
-    class="forma"
+    id="my-wide-form"
 >
     <div class="mb-3">
         <label class="form-label">Rol

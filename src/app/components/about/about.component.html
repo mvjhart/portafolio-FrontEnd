@@ -3,41 +3,61 @@
 <div id="contenedor">
 
 <!-- SIDE BAR PARA NAGEVACION POR EL ABOUT -->
-    <div id="side-bar">
-          <div class="d-flex align-items-start">
-            <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-              <button class="nav-link active" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">Me</button>
-              <button class="nav-link" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">Skills</button>
-            </div>
-            </div>
-            <button type="button"
-              class="btn btn-success btn-sm"
-              style="font-size: 0.8em;"
-              (click)="editAboutToggle()"
-            >
-              <small>Editar About</small>
-            </button>
+  <div id="side-bar" *ngIf="!updateAboutView && !expView">
+    <div id="nav-buttons">
+      <div 
+        class="nav flex-column nav-pills me-3" 
+        id="v-pills-tab" role="tablist" 
+        aria-orientation="vertical"
+      >
+        <button 
+          class="nav-link active" 
+          id="v-pills-home-tab" data-bs-toggle="pill" 
+          data-bs-target="#v-pills-home" type="button" 
+          role="tab" aria-controls="v-pills-home" 
+          aria-selected="true"
+          (click)="onFirstItem()"
+        >
+          {{titleFirstItem}}
+        </button>
+        <button 
+          class="nav-link" id="v-pills-profile-tab" 
+          data-bs-toggle="pill" data-bs-target="#v-pills-profile" 
+          type="button" role="tab" aria-controls="v-pills-profile" 
+          aria-selected="false"
+          (click)="onSecondItem()"
+        >
+         {{titleSecondItem}}
+        </button>
+      </div>
     </div>
+    <div id="last-button">
+      <app-boton
+        text="Editar About"
+        clase="btn btn-success btn-sm"
+        *ngIf="firstItem"
+        (botonClick)="editAboutToggle()"
+      >
+      </app-boton>
+   </div>
+  </div>
 <!-- FIN DEL SIDE BAR PARA NAGEVACION POR EL ABOUT -->
 <!-- INICIO DEL  ABOUT CARD -->
   <div id="about-card">
     <!-- INICIO DEL CONTENEDOR QUE TIENE LAS DOS PILLS QUE ESTAN LINKEADAS AL SIDEBAR -->
-      <div class="tab-content" id="v-pills-tabContent" *ngIf="!editAboutView">
+      <div class="tab-content" id="v-pills-tabContent">
         <!--  INICIO FIRST PILL -->
-        <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab" tabindex="0">
+        <div id="first-item-holder" *ngIf="firstItem">
           <app-about-card></app-about-card>
         </div>
         <!-- FIN FIRST PILL-->
         <!-- INICIO SECOND PILL -->
-        <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab" tabindex="0">
+        <div id="second-item-holder" *ngIf="!firstItem">
           <app-skills></app-skills>
         </div>
         <!-- FIN SECOND PILL -->
       </div>
       <!-- FIN DEL CONTENEDOR QUE CONTIENE LAS DOS PILLS -->
-      <app-edit-about *ngIf="editAboutView"
-      >
-      </app-edit-about>
   </div>
 <!-- FIN ABOUT CARD -->
 </div>
