@@ -16,7 +16,9 @@ const httOptions = {
   providedIn: 'root'
 })
 export class DataService {
-  url:string="http://localhost:8080";
+  //url:string="http://localhost:8080";
+
+  url:string="https://backend-porta-try.onrender.com";
   aboutID:number=1;
 
   constructor(

@@ -7,7 +7,8 @@ import { map } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthService {
-  url:string="http://localhost:8080/auth/login";
+  //url:string="http://localhost:8080/auth/login";
+  url:string="https://backend-porta-try.onrender.com/auth/login";
   currentUserSubject: BehaviorSubject<any>;
 
   constructor(
